@@ -69,9 +69,9 @@ public:
             return "-1";
         }
 
-        std::string passwordSHA1 = calculateSHA1(passwordSHA1);
+        std::string passwordSHA1 = calculateSHA1(searchPassword);
 
-        cout << "SHA1 of the password:" << passwordSHA1 << "\n";
+        std::cout << "SHA1 of the password:" << passwordSHA1 << "\n";
 
         long long start = 0;
         long long end = filesize - 1;
