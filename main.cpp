@@ -9,8 +9,9 @@ using namespace std;
 int main(int argc, char* argv[]) {
     string filename;
 
-    cout << "Enter the file name:\n";
+    cout << "Enter the file name where pwned-passwords-sha1-ordered-by-hash is stored:\n";
     cin >> filename;
+    //filename = "/home/ppa/Documents/pwned-passwords-sha1-ordered-by-hash-v7.txt";
 
     SearchPassword searchPassword(filename);
 
