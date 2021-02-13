@@ -4,12 +4,9 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-#include <filesystem>
 #include <iomanip>
 #include <openssl/sha.h>
 #include <algorithm>
-
-namespace fs = std::filesystem;
 
 class SearchPassword {
 private:
@@ -49,9 +46,9 @@ private:
 
 public:
     SearchPassword(std::string file): input(file, std::ifstream::ate | std::ifstream::binary) {
-        const auto fsize = fs::file_size(file);
-        filesize = fsize;
-        std::cout << "filesize:" << filesize << '\n';
+        input.seekg(0, std::ios_base::end);
+        filesize = input.tellg();
+        std::cout << "filesize:" << filesize << " bytes\n";
     } 
 
     void reinitializeBuffer(char* arr, int size) {

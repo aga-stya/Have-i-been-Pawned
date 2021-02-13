@@ -4,27 +4,28 @@
 
 #include "SearchPassword.h"
 
-using namespace std;
+using std::cout;
 
 int main(int argc, char* argv[]) {
-    string filename;
+    std::string filename;
 
-    cout << "Enter the file name where pwned-passwords-sha1-ordered-by-hash is stored:\n";
-    cin >> filename;
-    //filename = "/home/ppa/Documents/pwned-passwords-sha1-ordered-by-hash-v7.txt";
+    std::cout << "Enter the file name where pwned-passwords-sha1-ordered-by-hash is stored:\n";
+    std::cin >> filename;
 
     SearchPassword searchPassword(filename);
 
-    cout << "Enter password to search\n";
-    string passwordToSearch;
-    cin >> passwordToSearch;
+    std::cout << "Enter password to search\n";
+    std::string passwordToSearch;
+    std::cin >> passwordToSearch;
 
-    while(passwordToSearch != "exit") {
-        string result = searchPassword.binarySearch(passwordToSearch);
-        if (result == "-1")
-            cout << "Password not found\n";
-        else
-            cout << "Password found. Used for " << result << " times.\n";
-        cin >> passwordToSearch;
+    while(passwordToSearch != "]^") {
+        std::string result = searchPassword.binarySearch(passwordToSearch);
+        if (result == "-1") {
+            std::cout << ">>>>>>Good News! Password not found\n\n";
+        } else {
+            std::cout << ">>>>>>Oh no — pwned!\n";
+            std::cout << ">>>>>>This password has been seen " << result << " times before\n\n";
+        }
+        std::cin >> passwordToSearch;
     }
 }
