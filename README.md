@@ -6,3 +6,6 @@ The application takes in a password and gives a count of how many times that pas
 The application makes use of OpenSSL libary to calculate the SHA1 of the password provided as an input. The SHA1 calculated using OpenSSL is then searched through the huge file downloaded before. The application makes use of binary search to search through the huge file.
 
 To exit the application enter "]^" (without quotes of course).
+
+To compile the code:
+g++ -o main -Wall -Wunused main.cpp -lssl -lcrypto
